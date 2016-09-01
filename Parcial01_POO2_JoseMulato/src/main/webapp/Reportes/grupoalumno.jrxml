@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdbfeb3b-9754-4bb1-8620-a812603db0aa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Codigo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT g.codi_grup_alum, a.nomb_alum, a.apel_alum, b.codi_grup, b.nomb_grup 
+FROM Grupos_Alumnos g, Alumnos a, Grupos b where g.codi_alum=a.codi_alum and g.codi_grup=b.codi_grup and b.codi_grup=$P{Codigo}]]>
+	</queryString>
+	<field name="codi_grup_alum" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_alum" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apel_alum" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codi_grup" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_grup" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="106" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="106" forecolor="#FFFFFF" backcolor="#00FFFF" uuid="eb6f7260-5ed6-47db-a2cb-3cda4c73c7f9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="154" y="29" width="243" height="46" forecolor="#FFFFFF" uuid="31f085db-829a-4944-ac89-c2de28f4c91c"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRUPOS Y ALUMNOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="db82b023-2228-4bfb-a79c-9cedabc9715a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="147" height="20" uuid="f02a7293-bd29-4fc5-b066-763356d53d9c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE ALUMNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="0" width="147" height="20" uuid="62553804-2de0-4d30-b4d1-1354622c7a0c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO ALUMNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="0" width="147" height="20" uuid="aec0dc98-5c47-4a03-b743-7d327384d5bf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE GRUPO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="397" y="0" width="147" height="20" backcolor="#00CCCC" uuid="58308a54-3977-4af8-b5f5-aa9c531ed2cb"/>
+				<textFieldExpression><![CDATA[$F{nomb_grup}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="20" backcolor="#00CCCC" uuid="4df0edd1-8f77-47dc-841d-d18fda951c00"/>
+				<textFieldExpression><![CDATA[$F{codi_grup_alum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="100" y="0" width="147" height="20" backcolor="#00CCCC" uuid="a96dbd0a-5184-4996-b10f-18759ce58e97"/>
+				<textFieldExpression><![CDATA[$F{nomb_alum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="247" y="0" width="147" height="20" backcolor="#00CCCC" uuid="8e5873a9-870b-4986-8aaf-5e5f5c3d86c7"/>
+				<textFieldExpression><![CDATA[$F{apel_alum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="01f5cef1-303d-49ec-825f-14ff88ba73c4"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>
